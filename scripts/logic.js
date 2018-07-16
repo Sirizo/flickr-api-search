@@ -3,7 +3,7 @@ function results(){
      $('#searchBtn').click(function (){
           $('.album .row').html('');
           if ($('#search').val() == null || $('#search').val() == '') {
-               searchFlickr('sea');
+               searchFlickr('');
           } else {
                searchFlickr($('#search').val().toLowerCase().replace(" ",""));
           }
