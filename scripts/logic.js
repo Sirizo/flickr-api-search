@@ -22,7 +22,7 @@ function searchFlickr(searchTerm) {
                // Make feedData equal to the data within the 'items' outer object of msg
                var feedData = msg.items ? msg.items : {};
 
-               var title, img, author, lnk, authlnk, proflnk, description, tags;
+               var title, img, author, lnk, authlnk, description, tags;
 
                // Go through feedData and print out each entry provided it has something
                for (var i = 0; i < 8; i++) {
@@ -72,8 +72,7 @@ function getAuthor(tmp1) {
 function getDescription(description) {
      // Sanitize desriptions
      if ($.parseHTML(description).length == 5) {
-          description = '';
-          // console.log('There is no description for this entry');
+          return description = '';
      } else if ($.parseHTML(description).length == 6) {
           if ($.parseHTML(description)[5].innerHTML.length > 100) {
                return description = $.parseHTML(description)[5].textContent.substring(0,100) + '...';
@@ -84,13 +83,13 @@ function getDescription(description) {
 }
 
 function getLinks(profile) {
-     var tmp, tmplnk, proflnk;
+     var tmp, tmplnk;
 
      tmp = profile.slice(0, -2);
      tmplnk = tmp.split("\/");     
      tmplnk.pop();    
      
-     return proflnk = tmplnk.join("\/");
+     return tmplnk.join("\/");
 }
 
 function getTags(tags) {
