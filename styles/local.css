@@ -21,7 +21,7 @@ html {
 }
 
 .imageCard {
-	height: 169px;
+	height: 225px;
 	width: 100%;
 	display: block;
 }
@@ -31,4 +31,9 @@ html {
 	width: 100%;
 	-o-object-fit: cover;
 	   object-fit: cover;
+}
+
+.compat-object-fit {
+   background-size: cover;
+   background-position: center center;
 }
