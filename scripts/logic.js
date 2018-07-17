@@ -8,6 +8,7 @@ function results(){
                searchFlickr($('#search').val().toLowerCase().replace(" ",""));
           }
      });
+     checkImages();
 }
 
 function searchFlickr(searchTerm) {
@@ -59,6 +60,7 @@ function searchFlickr(searchTerm) {
                }
           }
      });
+     checkImages();
 }
 
 function getAuthor(tmp1) {
@@ -94,6 +96,20 @@ function getLinks(profile) {
 
 function getTags(tags) {
      return tags.split(' ').slice(0,3);
+}
+
+function checkImages(){
+  if ( ! Modernizr.objectfit ) {
+    $('.imageCard').each(function () {
+      var $container = $(this),
+          imgUrl = $container.find('.card-img-top').prop('src');
+      if (imgUrl) {
+        $container
+          .css('backgroundImage', 'url(' + imgUrl + ')')
+          .addClass('compat-object-fit');
+      }  
+    });
+  }
 }
 
 results();

@@ -37,3 +37,7 @@ html {
    background-size: cover;
    background-position: center center;
 }
+
+.d-flex p {
+	width: 100%;
+}
